@@ -432,7 +432,6 @@ c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.
     category: sectionNames.LOGIN_SECTION,
   });
 
-
   editor.BlockManager.add("my-style-block-8", {
     label: `
       <i class="fa fa-square-o" style="font-size: 40px; padding:4px;"></i> Styled Block 2

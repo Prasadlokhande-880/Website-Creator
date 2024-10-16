@@ -70,9 +70,9 @@ const DemoPage = () => {
         breadCrumbs: {
           /* options for your breadCrumbs */
         },
-        Dropdown:{
+        Dropdown: {
           /* options for your carousel */
-        }
+        },
       },
     });
 

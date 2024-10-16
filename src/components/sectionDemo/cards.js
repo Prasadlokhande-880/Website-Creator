@@ -199,7 +199,6 @@ const cards = (editor) => {
     category: sectionNames.CARDS,
   });
 
-
   editor.BlockManager.add("card-block-8", {
     label: `
     <i class="fa fa-square-o" style="font-size: 40px; padding:4px;"></i> Styled Block 1
@@ -277,8 +276,6 @@ const cards = (editor) => {
   `,
     category: sectionNames.CARDS,
   });
-
-
 
   editor.BlockManager.add("card-block-10", {
     label: `
@@ -362,8 +359,6 @@ const cards = (editor) => {
   `,
     category: sectionNames.CARDS,
   });
-
-
 
   editor.BlockManager.add("card-block-11", {
     label: `
@@ -509,7 +504,6 @@ const cards = (editor) => {
     category: sectionNames.CARDS,
   });
 
-
   editor.BlockManager.add("card-block-12", {
     label: `
     <i class="fa fa-square-o" style="font-size: 40px; padding:4px;"></i> Styled Block 1
@@ -653,8 +647,6 @@ const cards = (editor) => {
   `,
     category: sectionNames.INPUT_SECTION,
   });
-
-
 
   editor.BlockManager.add("card-block-13", {
     label: `
@@ -845,6 +837,5 @@ const cards = (editor) => {
     category: sectionNames.INPUT_SECTION,
   });
 };
-
 
 export default cards;
