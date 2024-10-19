@@ -59,25 +59,25 @@ const Navbar = () => {
             <li>
               <Link
                 className={`text-base font-light ${
-                  isActiveLink("/contact")
+                  isActiveLink("/features")
                     ? "text-white"
                     : "text-gray-300 hover:text-gray-100"
                 }`}
-                to="/contact"
+                to="/features"
               >
-                Contact
+                Features
               </Link>
             </li>
             <li>
               <Link
                 className={`text-base font-light ${
-                  isActiveLink("/custom-component")
+                  isActiveLink("/blog")
                     ? "text-white"
                     : "text-gray-300 hover:text-gray-100"
                 }`}
-                to="/custom-component"
+                to="/blog"
               >
-                Custom Component
+                Blog
               </Link>
             </li>
             <li>

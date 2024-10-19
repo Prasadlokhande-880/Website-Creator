@@ -5,7 +5,7 @@ import Img2 from "../../assets/images/img2.jpg";
 import Img3 from "../../assets/images/img3.jpg";
 import Img4 from "../../assets/images/img4.jpg";
 
-const HeroSection = () => {
+const HeroSection = (data) => {
   const carouselRef = useRef(null);
   const sliderRef = useRef(null);
   const thumbnailRef = useRef(null);
@@ -16,7 +16,7 @@ const HeroSection = () => {
   const runTimeOut = useRef(null);
   const runNextAuto = useRef(null);
 
-  useEffect(() => {
+  useEffect((data) => {
     const carouselDom = carouselRef.current;
     const sliderDom = sliderRef.current;
     const thumbnailBorderDom = thumbnailRef.current;
@@ -94,11 +94,9 @@ const HeroSection = () => {
             <img src={imgSrc} alt={`img${index + 1}`} />
             <div className="content">
               <div className="author">LUNDEV</div>
-              <div className="title">DESIGN SLIDER</div>
+              <div className="title">{data.data.title}</div>
               <div className="topic">ANIMAL</div>
-              <div className="des">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit...
-              </div>
+              <div className="des">{data.data.single_line_textbox}</div>
               <div className="buttons">
                 <button>SEE MORE</button>
                 <button>SUBSCRIBE</button>
@@ -112,7 +110,7 @@ const HeroSection = () => {
       <div className="thumbnail" ref={thumbnailRef}>
         {[
           { Img: Img2, Description: "land dear" },
-          { Img: Img1, Description: "mountan dear" },
+          { Img: data.data.img1.url, Description: "mountan dear" },
           { Img: Img3, Description: "elephandr" },
           { Img: Img4, Description: "lapod" },
         ].map((temp, index) => (
