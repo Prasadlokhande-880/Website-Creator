@@ -89,7 +89,7 @@ const HeroSection = (data) => {
     <div className="carousel mt-4" ref={carouselRef}>
       {/* Slider List */}
       <div className="list" ref={sliderRef}>
-        {[, Img3, Img4, Img2].map((imgSrc, index) => (
+        {[Img1, Img3, Img4, Img2].map((imgSrc, index) => (
           <div className="item" key={index}>
             <img src={imgSrc} alt={`img${index + 1}`} />
             <div className="content">
