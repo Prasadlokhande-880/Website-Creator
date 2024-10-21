@@ -6,6 +6,7 @@ import { MasonryGridGallery } from "../components/about/gridGalery";
 import MyTeam from "../components/about/myTeam";
 import { FeaturesSectionDemo } from "../components/about/features";
 import { MovingCards } from "../components/about/movingCards";
+import VisionMission from "../components/about/VisionMission";
 
 const about = () => {
   return (
@@ -13,7 +14,8 @@ const about = () => {
       <Navbar />
       <HeroSection />
       <MasonryGridGallery />
-      <MovingCards />
+      {/* <MovingCards /> */}
+      <VisionMission />
       <MyTeam />
       <FeaturesSectionDemo />
       <Footer />

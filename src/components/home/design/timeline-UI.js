@@ -2,7 +2,7 @@ import { useScroll, useTransform, motion } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 import Heading from "./heading";
 
-export const Timeline = ({ data }) => {
+export const Timeline = ({ data, heading1, heading2 }) => {
   const ref = useRef(null);
   const containerRef = useRef(null);
   const [height, setHeight] = useState(0);
@@ -29,8 +29,8 @@ export const Timeline = ({ data }) => {
     >
       <div className="pt-6 pb-4">
         <Heading
-          whiteHeading="Chat Smarter Not Harder"
-          orangeHeading="with Brainwave"
+          whiteHeading={heading1}
+          orangeHeading={heading2}
         />
       </div>
 

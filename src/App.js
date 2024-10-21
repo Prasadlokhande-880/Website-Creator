@@ -7,6 +7,7 @@ import SignUp from "./Pages/signUp";
 import BlogPage from "./Pages/blog";
 import DetailBlog from "./Pages/detailblog";
 import Features from "./Pages/FeaturesSection";
+import Error from "./Pages/error";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/Blog" element={<BlogPage />} />
         <Route path="/BlogDetails/:id" element={<DetailBlog />} />
         <Route path="/Features" element={<Features />} />
+        <Route path="/*" element={<Error />} />
       </Routes>
     </BrowserRouter>
   );

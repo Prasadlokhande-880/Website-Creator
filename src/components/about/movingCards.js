@@ -4,7 +4,7 @@ import Heading from "../home/design/heading";
 
 export function MovingCards() {
   return (
-    <div className="rounded-md flex flex-col antialiased bg-slate-50 items-center justify-center relative overflow-hidden">
+    <div className="rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden mb-12">
       <Heading
         whiteHeading="Chat Smarter, Not Harder"
         orangeHeading="with Brainwave"

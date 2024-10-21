@@ -1,11 +1,7 @@
 import React, { useEffect, useRef } from "react";
-import "./heroSection.css"; // Assuming you have your CSS separately
-import Img1 from "../../assets/images/img1.jpg";
-import Img2 from "../../assets/images/img2.jpg";
-import Img3 from "../../assets/images/img3.jpg";
-import Img4 from "../../assets/images/img4.jpg";
+import "./heroSection.css";
 
-const HeroSection = () => {
+const HeroSection = ({ data }) => {
   const carouselRef = useRef(null);
   const sliderRef = useRef(null);
   const thumbnailRef = useRef(null);
@@ -16,7 +12,7 @@ const HeroSection = () => {
   const runTimeOut = useRef(null);
   const runNextAuto = useRef(null);
 
-  useEffect((data) => {
+  useEffect(() => {
     const carouselDom = carouselRef.current;
     const sliderDom = sliderRef.current;
     const thumbnailBorderDom = thumbnailRef.current;
@@ -30,13 +26,7 @@ const HeroSection = () => {
       !nextDom ||
       !prevDom
     ) {
-      return; // Early exit if any DOM elements are not available yet
-    }
-
-    const thumbnailItemsDom = thumbnailBorderDom.querySelectorAll(".item");
-
-    if (thumbnailItemsDom.length > 0) {
-      thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
+      return;
     }
 
     const showSlider = (type) => {
@@ -85,43 +75,69 @@ const HeroSection = () => {
     };
   }, []);
 
+  if (!data || !data.herocards) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="carousel mt-4" ref={carouselRef}>
       {/* Slider List */}
       <div className="list" ref={sliderRef}>
-        {[, Img3, Img4, Img2].map((imgSrc, index) => (
-          <div className="item" key={index}>
-            <img src={imgSrc} alt={`img${index + 1}`} />
-            <div className="content">
-              <div className="author">LUNDEV</div>
-              <div className="title">DFata for the operation</div>
-              <div className="topic">ANIMAL</div>
-              <div className="des">temp </div>
-              <div className="buttons">
-                <button>SEE MORE</button>
-                <button>SUBSCRIBE</button>
+        {[
+          data.herocards.herosection_img1?.url,
+          data.herocards.herosection_img2?.url,
+          data.herocards.herosection_img3?.url,
+          data.herocards.herosection_img4?.url,
+        ].map(
+          (imgSrc, index) =>
+            imgSrc && (
+              <div className="item" key={index}>
+                <img src={imgSrc} alt={`img${index + 1}`} />
+                <div className="content">
+                  <div className="title">{data.herosection}</div>
+                  <div className="topic">{data.herosectionheading2}</div>
+                  <div className="des">{data.detailsherossection}</div>
+                  <div className="buttons">
+                    <button>SEE MORE</button>
+                    <button>SUBSCRIBE</button>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        ))}
+            )
+        )}
       </div>
 
       {/* Thumbnail List */}
       <div className="thumbnail" ref={thumbnailRef}>
         {[
-          { Img: Img2, Description: "land dear" },
-          { Img: Img1, Description: "mountan dear" },
-          { Img: Img3, Description: "elephandr" },
-          { Img: Img4, Description: "lapod" },
-        ].map((temp, index) => (
-          <div className="item" key={index}>
-            <img src={temp.Img} alt={`thumbnail${index + 1}`} />
-            <div className="content">
-              <div className="title">Name Slider</div>
-              <div className="description">{temp.Description}</div>
-            </div>
-          </div>
-        ))}
+          {
+            Img: data.herocards.herosection_img1?.url,
+            Description: data.herocards.heroimgheader1,
+          },
+          {
+            Img: data.herocards.herosection_img2?.url,
+            Description: data.herocards.heroimgheader2,
+          },
+          {
+            Img: data.herocards.herosection_img3?.url,
+            Description: data.herocards.heroimgheader3,
+          },
+          {
+            Img: data.herocards.herosection_img4?.url,
+            Description: data.herocards.heroimgheader4,
+          },
+        ].map(
+          (temp, index) =>
+            temp.Img && (
+              <div className="item" key={index}>
+                <img src={temp.Img} alt={`thumbnail${index + 1}`} />
+                <div className="content">
+                  <div className="title">Name Slider</div>
+                  <div className="description">{temp.Description}</div>
+                </div>
+              </div>
+            )
+        )}
       </div>
 
       {/* Arrows */}
@@ -133,8 +149,6 @@ const HeroSection = () => {
           &gt;
         </button>
       </div>
-
-      <div className="time"></div>
     </div>
   );
 };
