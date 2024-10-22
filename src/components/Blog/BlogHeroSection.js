@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
-    <section className="h-screen overflow-hidden lg:pt-32 bg-[url('https://pagedone.io/asset/uploads/1691055810.png')] bg-center bg-cover mt-20">
+    <section className="h-screen overflow-hidden mt-16 lg:pt-32 bg-[url('https://pagedone.io/asset/uploads/1691055810.png')] bg-center bg-cover">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative text-center h-full flex flex-col justify-center">
         {/* Title and description */}
         <Heading
@@ -38,7 +38,7 @@ const HeroSection = () => {
         {/* Image */}
         <div className="flex justify-center mt-6">
           <img
-            src="https://res.cloudinary.com/dwzegbafg/image/upload/v1729597437/sorutqg48o1mrttzh6os.png"
+            src="https://pagedone.io/asset/uploads/1691054543.png"
             alt="Dashboard image"
             className="rounded-t-3xl h-auto object-cover"
           />
