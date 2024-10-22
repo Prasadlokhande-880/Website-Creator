@@ -1,32 +1,33 @@
 import React, { useEffect } from "react";
-import BlogHeroSection from "../components/Blog/BlogHeroSection";
 import Navbar from "../components/home/navBar";
 import Footer from "../components/home/footer";
-import BlogCards from "../components/Blog/BlogCards";
+import PostContent from "../components/createblog/PostBlog";
 import { useNavigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../database/firebaseConfig";
 
-const BlogPage = () => {
+const CreateBlog = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (!user) {
-        navigate("/login");
+        navigate("/login"); // Redirect to login if not authenticated
       }
     });
-    return () => unsubscribe();
+
+    return () => unsubscribe(); // Cleanup auth listener on unmount
   }, [navigate]);
 
   return (
-    <div>
+    <div className="bg-gray-50">
       <Navbar />
-      <BlogHeroSection />
-      <BlogCards />
+      <div className="mt-20 mb-10">
+        <PostContent />
+      </div>
       <Footer />
     </div>
   );
 };
 
-export default BlogPage;
+export default CreateBlog;

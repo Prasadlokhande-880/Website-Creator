@@ -11,54 +11,46 @@ import Img8 from "../../assets/images/dragon_8.jpg";
 import Img9 from "../../assets/images/dragon_9.jpg";
 import Img10 from "../../assets/images/dragon_10.jpg";
 
-const App = () => {
+const HeroSection = (props) => {
+  const {
+    hero_heading,
+    hero_section_multiline_heading,
+    hero_section_images,
+    hero_section_background_images,
+  } = props.data;
+
+  // Fallback images in case props are null
+  const images = [
+    hero_section_images?.hero_section_image_1?.url || Img1,
+    hero_section_images?.hero_section_image_2?.url || Img2,
+    hero_section_images?.hero_section_image_3?.url || Img3,
+    hero_section_images?.hero_section_image_4?.url || Img4,
+    hero_section_images?.hero_section_image_5?.url || Img5,
+    hero_section_images?.hero_section_image_6?.url || Img6,
+    hero_section_images?.hero_section_image_7?.url || Img7,
+    hero_section_images?.hero_section_image_8?.url || Img8,
+    hero_section_images?.hero_section_image_9?.url || Img9,
+    hero_section_images?.hero_section_image_10?.url || Img10,
+  ];
+
   return (
     <div className="banner mt-6">
-      <div className="slider" style={{ "--quantity": 10 }}>
-        <div className="item" style={{ "--position": 1 }}>
-          <img src={Img1} alt="Dragon 1" />
-        </div>
-        <div className="item" style={{ "--position": 2 }}>
-          <img src={Img2} alt="Dragon 2" />
-        </div>
-        <div className="item" style={{ "--position": 3 }}>
-          <img src={Img3} alt="Dragon 3" />
-        </div>
-        <div className="item" style={{ "--position": 4 }}>
-          <img src={Img4} alt="Dragon 4" />
-        </div>
-        <div className="item" style={{ "--position": 5 }}>
-          <img src={Img5} alt="Dragon 5" />
-        </div>
-        <div className="item" style={{ "--position": 6 }}>
-          <img src={Img6} alt="Dragon 6" />
-        </div>
-        <div className="item" style={{ "--position": 7 }}>
-          <img src={Img7} alt="Dragon 7" />
-        </div>
-        <div className="item" style={{ "--position": 8 }}>
-          <img src={Img8} alt="Dragon 8" />
-        </div>
-        <div className="item" style={{ "--position": 9 }}>
-          <img src={Img9} alt="Dragon 9" />
-        </div>
-        <div className="item" style={{ "--position": 10 }}>
-          <img src={Img10} alt="Dragon 10" />
-        </div>
+      <div className="slider" style={{ "--quantity": images.length }}>
+        {images.map((img, index) => (
+          <div className="item" key={index} style={{ "--position": index + 1 }}>
+            <img src={img} alt={` ${index + 1}`} />
+          </div>
+        ))}
       </div>
       <div className="content">
-        <h1 data-content="CSS ONLY">CSS ONLY</h1>
-        <div className="author">
-          <h2>LUN DEV</h2>
-          <p>
-            <b>Web Design</b>
-          </p>
-          <p>Subscribe to the channel to watch many interesting videos</p>
-        </div>
+        <h1 data-content={hero_heading || "CSS ONLY"}>
+          {hero_heading || "CSS ONLY"}
+        </h1>
+        <p>Subscribe to the channel to watch many interesting videos</p>
         <div className="model"></div>
       </div>
     </div>
   );
 };
 
-export default App;
+export default HeroSection;

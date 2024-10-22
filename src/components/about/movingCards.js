@@ -2,12 +2,47 @@ import React from "react";
 import { InfiniteMovingCards } from "./design/infinite-moving-cards";
 import Heading from "../home/design/heading";
 
-export function MovingCards() {
+export function MovingCards({ data }) {
+  // Extract feedback from props
+  const testimonials = [
+    ...Object.values(data.feedback_down).map((feedback) => ({
+      quote:
+        feedback.feedbackdetails1 ||
+        feedback.feedbackdetails2 ||
+        feedback.feedbackdetails3 ||
+        feedback.feedbackdetails4,
+      name:
+        feedback.name1 || feedback.name2 || feedback.name3 || feedback.name4,
+      title:
+        feedback.position1 ||
+        feedback.position2 ||
+        feedback.position3 ||
+        feedback.position4,
+    })),
+    ...Object.values(data.feedbackupper).map((feedback) => ({
+      quote:
+        feedback.feedback_details1 ||
+        feedback.feedback_details2 ||
+        feedback.feedback_details3 ||
+        "Contentstack's scalability has been a game changer for our e-commerce platform. As our product range expands, the CMS accommodates our needs without performance issues, ensuring a smooth customer experience.",
+      name:
+        feedback.name_1 ||
+        feedback.name_2 ||
+        feedback.name_3 ||
+        feedback.name_4,
+      title:
+        feedback.position_1 ||
+        feedback.position_2 ||
+        feedback.position_3 ||
+        feedback.position_4,
+    })),
+  ];
+
   return (
-    <div className="rounded-md flex flex-col antialiased bg-slate-50 items-center justify-center relative overflow-hidden">
+    <div className="rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden mb-12">
       <Heading
-        whiteHeading="Chat Smarter, Not Harder"
-        orangeHeading="with Brainwave"
+        whiteHeading="VOICE OF EXPERIENCE"
+        orangeHeading="INSIGHTS FROM OUR VALUED USERS"
       />
       <InfiniteMovingCards
         items={testimonials}
@@ -18,41 +53,3 @@ export function MovingCards() {
     </div>
   );
 }
-
-const testimonials = [
-  {
-    quote:
-      "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, ",
-    name: "Charles Dickens",
-    title: "A Tale of Two Cities",
-  },
-  {
-    quote:
-      "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take Arms against a Sea of troubles, And by opposing end them: to die, to sleep.",
-    name: "William Shakespeare",
-    title: "Hamlet",
-  },
-  {
-    quote:
-      "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take Arms against a Sea of troubles, And by opposing end them: to die, to sleep.",
-    name: "William Shakespeare",
-    title: "Hamlet",
-  },
-  {
-    quote: "All that we see or seem is but a dream within a dream.",
-    name: "Edgar Allan Poe",
-    title: "A Dream Within a Dream",
-  },
-  {
-    quote:
-      "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
-    name: "Jane Austen",
-    title: "Pride and Prejudice",
-  },
-  {
-    quote:
-      "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
-    name: "Herman Melville",
-    title: "Moby-Dick",
-  },
-];

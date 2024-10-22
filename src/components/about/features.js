@@ -6,20 +6,22 @@ import { motion } from "framer-motion";
 import { IconBrandYoutubeFilled } from "@tabler/icons-react";
 import Heading from "../home/design/heading";
 
-export function FeaturesSectionDemo() {
+export function FeaturesSectionDemo(props) {
+  props = props.data;
+
   const features = [
     {
-      title: "Track issues effectively",
+      title: props.history_section_card1.history_sub_section_1,
       description:
-        "Track and manage your project issues with ease using our intuitive interface.",
+        props.history_section_card1.history_sub_heading_1_description,
       skeleton: <SkeletonOne />,
       className:
         "col-span-1 lg:col-span-4 border-b lg:border-r dark:border-neutral-800",
     },
     {
-      title: "Capture pictures with AI",
+      title: props.history_section_card2.history_sub_section_2,
       description:
-        "Capture stunning photos effortlessly using our advanced AI technology.",
+        props.history_section_card2.history_sub_heading_2_description,
       skeleton: <SkeletonTwo />,
       className: "border-b col-span-1 lg:col-span-2 dark:border-neutral-800",
     },
@@ -34,7 +36,7 @@ export function FeaturesSectionDemo() {
     {
       title: "Deploy in seconds",
       description:
-        "With our blazing fast, state of the art, cutting edge, we are so back cloud servies (read AWS) - you can deploy your model in seconds.",
+        "With our blazing-fast, state-of-the-art, cutting-edge cloud services (like AWS), you can deploy your model in seconds.",
       skeleton: <SkeletonFour />,
       className: "col-span-1 lg:col-span-3 border-b lg:border-none",
     },
@@ -43,13 +45,12 @@ export function FeaturesSectionDemo() {
     <div className="relative z-20 py-10  max-w-7xl mx-auto">
       <div className="px-8">
         <Heading
-          whiteHeading="Chat Smarter, Not Harder"
-          orangeHeading="with Brainwave"
+          whiteHeading={props.history_section_heading_1}
+          orangeHeading={props.history_section_2}
         />
 
         <p className="text-sm lg:text-base  max-w-2xl  my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300">
-          From Image generation to video generation, Everything AI has APIs for
-          literally everything. It can even create this website copy for you.
+          {props.history_section_description}
         </p>
       </div>
       <div className="relative ">
@@ -104,7 +105,7 @@ export const SkeletonOne = () => {
         <div className="flex flex-1 w-full h-full flex-col space-y-2  ">
           {/* TODO */}
           <img
-            src="https://ui.aceternity.com/_next/image?url=%2Flinear.webp&w=1920&q=75"
+            src="https://res.cloudinary.com/dwzegbafg/image/upload/v1729597437/sorutqg48o1mrttzh6os.png"
             alt="header"
             width={800}
             height={800}
@@ -121,7 +122,7 @@ export const SkeletonOne = () => {
 export const SkeletonThree = () => {
   return (
     <a
-      href="https://www.youtube.com/watch?v=RPa3_AD1_Vs"
+      href="https://www.youtube.com/@Contentstack"
       target="__blank"
       className="relative flex gap-10  h-full group/image"
     >

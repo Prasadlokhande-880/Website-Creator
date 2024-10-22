@@ -1,6 +1,8 @@
-// DemoPage component
-import grapesjs from "grapesjs";
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../database/firebaseConfig";
+import grapesjs from "grapesjs";
 import plugin from "grapesjs-tailwind";
 import "grapesjs/dist/css/grapes.min.css";
 import pluginWebpage from "grapesjs-preset-webpage";
@@ -14,9 +16,20 @@ import buttons from "../components/sectionDemo/buttons";
 import bottomNavigation from "../components/sectionDemo/bottomNavigation";
 import breadCrumbs from "../components/sectionDemo/breadCrumbs";
 import Dropdown from "../components/sectionDemo/dropdown";
+import AddCustomComponents from "../components/sectionDemo/customComponents";
 
 const DemoPage = () => {
+  const navigate = useNavigate(); // Initialize navigate
+
   useEffect(() => {
+    // Check if the user is authenticated
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        // Redirect to login if not authenticated
+        navigate("/login");
+      }
+    });
+
     // Load Tailwind CSS in the Website
     const link = document.createElement("link");
     link.href =
@@ -40,7 +53,7 @@ const DemoPage = () => {
         buttons,
         bottomNavigation,
         breadCrumbs,
-        Dropdown,
+        AddCustomComponents,
       ],
       pluginsOpts: {
         [plugin]: {
@@ -94,8 +107,9 @@ const DemoPage = () => {
       if (link) {
         document.head.removeChild(link); // Clean up Tailwind link element
       }
+      unsubscribe(); // Unsubscribe from onAuthStateChanged
     };
-  }, []);
+  }, [navigate]);
 
   return (
     <div className="App">
