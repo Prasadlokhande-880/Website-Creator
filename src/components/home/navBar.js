@@ -6,7 +6,7 @@ import { Button } from "./design/moving-border";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../../database/firebaseConfig";
 import { Menu, Transition } from "@headlessui/react"; // For dropdown
-
+import Icon from "../about/CS_logo.png";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [user, setUser] = useState(null);
@@ -41,11 +41,7 @@ const Navbar = () => {
     <header className="z-[999] bg-[black] bg-opacity-50 backdrop-blur-lg border-opacity-20 shadow-lg fixed top-0 left-0 w-full">
       <nav className="flex justify-between items-center w-[100%]">
         <div>
-          <img
-            className="w-16 cursor-pointer mx-4 m-1"
-            src="https://cdn-icons-png.flaticon.com/512/5968/5968204.png"
-            alt="Logo"
-          />
+          <img className="w-16 cursor-pointer mx-4 m-1" src={Icon} alt="Logo" />
         </div>
         <div
           className={`nav-links duration-500 md:static absolute md:min-h-fit min-h-[56vh] left-0 ${
