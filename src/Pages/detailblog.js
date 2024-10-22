@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { Link, useParams } from "react-router-dom";
 import Title from "../components/BlogDetails/title";
 import ImageSection from "../components/BlogDetails/imageSection";
@@ -8,8 +8,22 @@ import Author from "../components/BlogDetails/author";
 import BlogCards from "../components/BlogDetails/blogCards";
 import Footer from "../components/home/footer";
 import CommentList from "../components/BlogDetails/CommentList";
+import { useNavigate } from "react-router-dom";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../database/firebaseConfig";
 
 const DetailBlog = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        navigate("/login");
+      }
+    });
+    return () => unsubscribe();
+  }, [navigate]);
+
   const { id } = useParams();
   console.log(id);
   const comments = [

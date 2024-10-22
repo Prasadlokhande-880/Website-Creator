@@ -16,16 +16,17 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        console.log("Fetching data from:", process.env.REACT_APP_API_URL);
         const response = await axios.get(process.env.REACT_APP_API_URL, {
           headers: {
             api_key: process.env.REACT_APP_API_KEY,
             access_token: process.env.REACT_APP_ACCESS_TOKEN,
-            branch: process.env.REACT_APP_BRANCH,
           },
         });
         const fetchedData = response.data;
         setData(fetchedData);
         setLoading(false);
+        console.log("Fetched data:", fetchedData);
       } catch (error) {
         console.error("Error fetching data:", error);
         setError(error);
@@ -43,6 +44,10 @@ const Home = () => {
   const heroSectionData = data?.entries?.[0]?.hero;
   const highlightsSectionData = data?.entries?.[0]?.highlightssection;
   const purposesectionData = data?.entries?.[0]?.purposesection;
+  const feedBack = data?.entries?.[0]?.feedbacks;
+
+  console.log(feedBack);
+
   return (
     <div>
       <Navbar />
@@ -59,9 +64,13 @@ const Home = () => {
       {purposesectionData ? (
         <TimelineDemo props={purposesectionData} />
       ) : (
-        <p>No purposesectionData data available</p>
+        <p>No purposesectionData available</p>
       )}
-      <MovingCards />
+      {feedBack ? (
+        <MovingCards data={feedBack} />
+      ) : (
+        <p> NO Feed back available</p>
+      )}
       <Footer />
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { IonIcon } from "@ionic/react";
 import { menuOutline } from "ionicons/icons";
 import { Button } from "./design/moving-border";
@@ -7,6 +7,7 @@ import { Button } from "./design/moving-border";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const Navigate = useNavigate();
 
   const onToggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -95,12 +96,14 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="flex items-center gap-6 m-2">
-          <Button
-            borderRadius="1.75rem"
-            className="bg-[#f97346] hover:bg-[#ff622e] text-black dark:text-white border-neutral-200 dark:border-slate-800"
-          >
-            Sign in
-          </Button>
+          <Link to={"/Login"}>
+            <Button
+              borderRadius="1.75rem"
+              className="bg-[#f97346] hover:bg-[#ff622e] text-black dark:text-white border-neutral-200 dark:border-slate-800"
+            >
+              Sign in
+            </Button>
+          </Link>
           <IonIcon
             icon={menuOutline}
             onClick={onToggleMenu}

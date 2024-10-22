@@ -1,5 +1,6 @@
 import React from "react";
 import Heading from "../home/design/heading";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -11,8 +12,8 @@ const HeroSection = () => {
           orangeHeading="with Brainwave"
         />
         {/* Create an account button */}
-        <a
-          href="javascript:;"
+        <Link
+          to={"/blog/createblog"}
           className="mb-14 inline-flex items-center justify-center py-3 px-7 text-base font-semibold text-center text-white rounded-full bg-orange-600 shadow-xs hover:bg-orange-700 transition-all duration-500"
         >
           Create Blog
@@ -32,7 +33,7 @@ const HeroSection = () => {
               strokeLinejoin="round"
             />
           </svg>
-        </a>
+        </Link>
 
         {/* Image */}
         <div className="flex justify-center mt-6">
