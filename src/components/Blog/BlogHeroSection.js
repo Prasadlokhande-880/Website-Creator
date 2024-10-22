@@ -8,8 +8,8 @@ const HeroSection = () => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative text-center h-full flex flex-col justify-center">
         {/* Title and description */}
         <Heading
-          whiteHeading="Chat Smarter, Not Harder"
-          orangeHeading="with Brainwave"
+          whiteHeading="INSIGHTS & INNOVATIONS"
+          orangeHeading="EXPLORE OUR BLOG"
         />
         {/* Create an account button */}
         <Link

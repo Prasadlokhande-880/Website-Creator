@@ -27,8 +27,8 @@ const BlogCards = () => {
   return (
     <div className="mt-4 p-2">
       <Heading
-        whiteHeading="Chat Smarter, Not Harder"
-        orangeHeading="with Brainwave"
+        whiteHeading="THE FUTURE OF TECHNOLOGY"
+        orangeHeading="TRENDS SHAPING TOMORROW"
       />
       <div className="m-4 p-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {cardData.map((card, index) => (
