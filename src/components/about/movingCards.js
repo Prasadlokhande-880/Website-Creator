@@ -24,7 +24,7 @@ export function MovingCards({ data }) {
         feedback.feedback_details1 ||
         feedback.feedback_details2 ||
         feedback.feedback_details3 ||
-        feedback.feedback_details4,
+        "Contentstack's scalability has been a game changer for our e-commerce platform. As our product range expands, the CMS accommodates our needs without performance issues, ensuring a smooth customer experience.",
       name:
         feedback.name_1 ||
         feedback.name_2 ||
@@ -41,8 +41,8 @@ export function MovingCards({ data }) {
   return (
     <div className="rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden mb-12">
       <Heading
-        whiteHeading="Chat Smarter, Not Harder"
-        orangeHeading="with Brainwave"
+        whiteHeading="VOICE OF EXPERIENCE"
+        orangeHeading="INSIGHTS FROM OUR VALUED USERS"
       />
       <InfiniteMovingCards
         items={testimonials}

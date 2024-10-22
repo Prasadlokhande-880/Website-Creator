@@ -13,34 +13,18 @@ export function TimelineDemo(props) {
             {TimeLineData.purposesection_div1.purposesection_details1}
           </p>
           <div className="grid grid-cols-2 gap-4">
-            <img
-              src={TimeLineData.purposesection_div1.purposesectiondiv1_img1.url}
-              alt="startup template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow"
-            />
-            <img
-              src={TimeLineData.purposesection_div1.purposesectiondiv1_img2.url}
-              alt="startup template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow"
-            />
-            <img
-              src={TimeLineData.purposesection_div1.purposesectiondiv1_img3.url}
-              alt="startup template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow"
-            />
-            <img
-              src={TimeLineData.purposesection_div1.purposesectiondiv1_img4.url}
-              alt="startup template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow"
-            />
+            {Array.from({ length: 4 }, (_, index) => (
+              <img
+                key={index}
+                src={
+                  TimeLineData.purposesection_div1[
+                    `purposesectiondiv1_img${index + 1}`
+                  ].url
+                }
+                alt={`startup template ${index + 1}`}
+                className="rounded-lg object-cover max-h-60 w-full shadow"
+              />
+            ))}
           </div>
         </div>
       ),
@@ -53,34 +37,18 @@ export function TimelineDemo(props) {
             {TimeLineData.purposesection_div2.purposesection_details}
           </p>
           <div className="grid grid-cols-2 gap-4">
-            <img
-              src={TimeLineData.purposesection_div2.purposesectiondiv2_img1.url}
-              alt="hero template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow"
-            />
-            <img
-              src={TimeLineData.purposesection_div2.purposesectiondiv2_img2.url}
-              alt="feature template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow"
-            />
-            <img
-              src={TimeLineData.purposesection_div2.purposesectiondiv2_img3.url}
-              alt="bento template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow"
-            />
-            <img
-              src={TimeLineData.purposesection_div2.purposesectiondiv2_img4.url}
-              alt="cards template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow"
-            />
+            {Array.from({ length: 4 }, (_, index) => (
+              <img
+                key={index}
+                src={
+                  TimeLineData.purposesection_div2[
+                    `purposesectiondiv2_img${index + 1}`
+                  ].url
+                }
+                alt={`feature template ${index + 1}`}
+                className="rounded-lg object-cover max-h-60 w-full shadow"
+              />
+            ))}
           </div>
         </div>
       ),
@@ -93,34 +61,18 @@ export function TimelineDemo(props) {
             {TimeLineData.purposesection_div3.purposesectiondetails2}
           </p>
           <div className="grid grid-cols-2 gap-4">
-            <img
-              src={TimeLineData.purposesection_div3.purposesectiondiv3_img1.url}
-              alt="dragon_4"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow"
-            />
-            <img
-              src={TimeLineData.purposesection_div3.purposesectiondiv3_img2.url}
-              alt="dragon_9"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow"
-            />
-            <img
-              src={TimeLineData.purposesection_div3.purposesectiondiv3_img3.url}
-              alt="img3"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow"
-            />
-            <img
-              src={TimeLineData.purposesection_div3.purposesectiondiv3_img4.url}
-              alt="img2"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow"
-            />
+            {Array.from({ length: 4 }, (_, index) => (
+              <img
+                key={index}
+                src={
+                  TimeLineData.purposesection_div3[
+                    `purposesectiondiv3_img${index + 1}`
+                  ].url
+                }
+                alt={`changelog template ${index + 1}`}
+                className="rounded-lg object-cover max-h-60 w-full shadow"
+              />
+            ))}
           </div>
         </div>
       ),

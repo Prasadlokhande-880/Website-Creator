@@ -81,7 +81,6 @@ const HeroSection = ({ data }) => {
 
   return (
     <div className="carousel mt-4" ref={carouselRef}>
-      {/* Slider List */}
       <div className="list" ref={sliderRef}>
         {[
           data.herocards.herosection_img1?.url,
@@ -97,10 +96,6 @@ const HeroSection = ({ data }) => {
                   <div className="title">{data.herosection}</div>
                   <div className="topic">{data.herosectionheading2}</div>
                   <div className="des">{data.detailsherossection}</div>
-                  <div className="buttons">
-                    <button>SEE MORE</button>
-                    <button>SUBSCRIBE</button>
-                  </div>
                 </div>
               </div>
             )

@@ -16,6 +16,7 @@ import buttons from "../components/sectionDemo/buttons";
 import bottomNavigation from "../components/sectionDemo/bottomNavigation";
 import breadCrumbs from "../components/sectionDemo/breadCrumbs";
 import Dropdown from "../components/sectionDemo/dropdown";
+import AddCustomComponents from "../components/sectionDemo/customComponents";
 
 const DemoPage = () => {
   const navigate = useNavigate(); // Initialize navigate
@@ -52,7 +53,7 @@ const DemoPage = () => {
         buttons,
         bottomNavigation,
         breadCrumbs,
-        Dropdown,
+        AddCustomComponents,
       ],
       pluginsOpts: {
         [plugin]: {

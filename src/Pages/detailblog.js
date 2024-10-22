@@ -1,19 +1,23 @@
-import React,{useEffect} from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Title from "../components/BlogDetails/title";
 import ImageSection from "../components/BlogDetails/imageSection";
 import PostContent from "../components/BlogDetails/postContent";
 import Comment from "../components/BlogDetails/Comment";
 import Author from "../components/BlogDetails/author";
-import BlogCards from "../components/BlogDetails/blogCards";
 import Footer from "../components/home/footer";
 import CommentList from "../components/BlogDetails/CommentList";
 import { useNavigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../database/firebaseConfig";
+import { auth, db } from "../database/firebaseConfig";
+import { doc, getDoc } from "firebase/firestore";
+import BlogCards from "../components/Blog/BlogCards";
 
 const DetailBlog = () => {
   const navigate = useNavigate();
+  const { id } = useParams();
+  const [post, setPost] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -22,36 +26,36 @@ const DetailBlog = () => {
       }
     });
     return () => unsubscribe();
-  }, [navigate]);
+  }, [navigate, auth]);
 
-  const { id } = useParams();
-  console.log(id);
-  const comments = [
-    {
-      author: "Alice Johnson",
-      text:
-        "Great article! I learned a lot about the topic. Thanks for sharing.",
-      date: "2024-10-17T09:20:34Z",
-    },
-    {
-      author: "Bob Williams",
-      text:
-        "Very insightful post. I especially liked the detailed explanation on the third point.",
-      date: "2024-10-16T14:12:22Z",
-    },
-    {
-      author: "Charlie Brown",
-      text:
-        "I have a question about the topic—could you clarify how the process works in more detail?",
-      date: "2024-10-15T11:45:08Z",
-    },
-    {
-      author: "Diana Smith",
-      text:
-        "This is exactly what I was looking for. Thanks for putting this together!",
-      date: "2024-10-14T16:30:50Z",
-    },
-  ];
+  useEffect(() => {
+    const fetchPostById = async () => {
+      try {
+        const postRef = doc(db, "posts", id);
+        const postSnap = await getDoc(postRef);
+
+        if (postSnap.exists()) {
+          setPost(postSnap.data());
+        } else {
+          console.error("No such document!");
+        }
+      } catch (error) {
+        console.error("Error fetching post: ", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPostById();
+  }, [id]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!post) {
+    return <div>Post not found.</div>;
+  }
 
   return (
     <>
@@ -64,12 +68,17 @@ const DetailBlog = () => {
         </Link>
       </div>
 
-      <Title />
-      <ImageSection />
-      <PostContent />
-      <Comment />
-      <CommentList comments={comments} />
-      <Author />
+      <Title title={post.blogHeading} time={post.createdAt} />
+      <ImageSection imageUrl={post.imageUrl} />
+      <PostContent
+        content={post.content}
+        postDetails={post.postDetails}
+        author={post.name}
+        designation={post.designation}
+      />
+      <Comment postId={id} />
+      <CommentList comments={post.comments || []} />
+      <Author author={post.name} designation={post.designation} />
       <BlogCards />
       <Footer />
     </>

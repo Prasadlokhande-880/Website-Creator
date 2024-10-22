@@ -2,43 +2,43 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer class="w-full py-4 bg-gray-100">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl mx-auto">
-          <ul class="text-lg flex items-center justify-center flex-col gap-7 md:flex-row md:gap-12 transition-all duration-500 py-4 mb-6 border-b border-gray-200">
+    <footer className="w-full py-4 bg-gray-100">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto">
+          <ul className="text-lg flex items-center justify-center flex-col gap-7 md:flex-row md:gap-12 transition-all duration-500 py-4 mb-6 border-b border-gray-200">
             <li>
-              <a href="#" class="text-gray-800 hover:text-gray-900">
+              <a href="#" className="text-gray-800 hover:text-gray-900">
                 Pagedone
               </a>
             </li>
             <li>
-              <a href="#" class=" text-gray-800 hover:text-gray-900">
+              <a href="#" className=" text-gray-800 hover:text-gray-900">
                 Products
               </a>
             </li>
             <li>
-              <a href="#" class=" text-gray-800 hover:text-gray-900">
+              <a href="#" className=" text-gray-800 hover:text-gray-900">
                 Resources
               </a>
             </li>
             <li>
-              <a href="#" class=" text-gray-800 hover:text-gray-900">
+              <a href="#" className=" text-gray-800 hover:text-gray-900">
                 Blogs
               </a>
             </li>
             <li>
-              <a href="#" class=" text-gray-800 hover:text-gray-900">
+              <a href="#" className=" text-gray-800 hover:text-gray-900">
                 Support
               </a>
             </li>
           </ul>
-          <div class="flex space-x-10 justify-center items-center mb-6">
+          <div className="flex space-x-10 justify-center items-center mb-6">
             <a
               href="#"
-              class="block  text-gray-900 transition-all duration-500 hover:text-indigo-600 "
+              className="block  text-gray-900 transition-all duration-500 hover:text-indigo-600 "
             >
               <svg
-                class="w-[1.688rem] h-[1.688rem]"
+                className="w-[1.688rem] h-[1.688rem]"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="none"
@@ -51,10 +51,10 @@ function Footer() {
             </a>
             <a
               href="#"
-              class="block  text-gray-900 transition-all duration-500 hover:text-indigo-600 "
+              className="block  text-gray-900 transition-all duration-500 hover:text-indigo-600 "
             >
               <svg
-                class="w-[1.688rem] h-[1.688rem] "
+                className="w-[1.688rem] h-[1.688rem] "
                 viewBox="0 0 29 29"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -67,10 +67,10 @@ function Footer() {
             </a>
             <a
               href="#"
-              class="block  text-gray-900 transition-all duration-500 hover:text-indigo-600 "
+              className="block  text-gray-900 transition-all duration-500 hover:text-indigo-600 "
             >
               <svg
-                class="w-[0.938rem] h-[1.625rem]"
+                className="w-[0.938rem] h-[1.625rem]"
                 viewBox="0 0 15 26"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -83,10 +83,10 @@ function Footer() {
             </a>
             <a
               href="#"
-              class="block  text-gray-900 transition-all duration-500 hover:text-indigo-600 "
+              className="block  text-gray-900 transition-all duration-500 hover:text-indigo-600 "
             >
               <svg
-                class="w-[1.875rem] h-[1.375rem]"
+                className="w-[1.875rem] h-[1.375rem]"
                 viewBox="0 0 30 22"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +100,7 @@ function Footer() {
               </svg>
             </a>
           </div>
-          <span class="text-lg text-gray-500 text-center block">
+          <span className="text-lg text-gray-500 text-center block">
             ©<a href="https://pagedone.io/">pagedone</a> 2024, All rights
             reserved.
           </span>

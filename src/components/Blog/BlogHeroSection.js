@@ -38,7 +38,7 @@ const HeroSection = () => {
         {/* Image */}
         <div className="flex justify-center mt-6">
           <img
-            src="https://pagedone.io/asset/uploads/1691054543.png"
+            src="https://res.cloudinary.com/dwzegbafg/image/upload/v1729597437/sorutqg48o1mrttzh6os.png"
             alt="Dashboard image"
             className="rounded-t-3xl h-auto object-cover"
           />

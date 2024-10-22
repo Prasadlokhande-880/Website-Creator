@@ -13,7 +13,7 @@ const Features = lazy(() => import("./Pages/FeaturesSection"));
 const Error = lazy(() => import("./Pages/error"));
 const CreateBlogs = lazy(() => import("./Pages/createblog"));
 const Login = lazy(() => import("./Pages/Login"));
-
+const Custom = lazy(() => import("./Pages/creatComponents"));
 function App() {
   return (
     <BrowserRouter>
@@ -28,6 +28,7 @@ function App() {
           <Route path="/Features" element={<Features />} />
           <Route path="/blog/createblog" element={<CreateBlogs />} />
           <Route path="/Login" element={<Login />} />
+          <Route path="/CustomComponents" element={<Custom />} />
           <Route path="/*" element={<Error />} />
         </Routes>
       </Suspense>

@@ -7,6 +7,8 @@ import {
   createUserWithEmailAndPassword,
 } from "firebase/auth";
 
+import { getFirestore } from "firebase/firestore";
+
 const firebaseConfig = {
   apiKey: "AIzaSyDLyzZZz2eS7g-5dJLnE638ur1zR1f9p5o",
   authDomain: "content-stack-authentication.firebaseapp.com",
@@ -21,6 +23,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
+export const db = getFirestore(app);
 
 // Google sign-in function
 export const signInWithGoogle = () => {
