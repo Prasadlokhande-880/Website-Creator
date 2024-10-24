@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Card = ({ image, title, description, tags = [], Id }) => {
+const Card = ({ image, title, description = "", tags = [], Id }) => {
   return (
     <Link to={`/BlogDetails/${Id}`}>
       <div className="max-w-sm rounded-lg overflow-hidden shadow-lg m-2 p-2 border border-gray-300 cursor-pointer hover:shadow-xl transition-shadow duration-300">
@@ -12,7 +12,7 @@ const Card = ({ image, title, description, tags = [], Id }) => {
         <div className="px-6 py-4">
           <div className="font-bold text-xl mb-2">{title}</div>
           <p className="text-gray-700 text-base">
-            {description.length > 100
+            {description && description.length > 100
               ? description.substring(0, 100) + "..."
               : description}
           </p>
