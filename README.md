@@ -90,7 +90,7 @@ The app is configured to use Contentstack's API for content management. Here’s
 
 ### Additional Resources
 
-- **Live Website** ([link here](https://website-creator.eu-contentstackapps.com/)
+- **Live Website** ([link here](https://website-creator.eu-contentstackapps.com/))
 - [Contentstack API Documentation](https://www.contentstack.com/docs/developers/apis/)
 - [Contentstack Deployment Guide](https://www.contentstack.com/docs/developers/deployment-guide/)
 
